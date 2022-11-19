@@ -12,7 +12,7 @@ import LoginResponse from '../models/LoginResponse';
 class ApiClass {
   private axiosInstance = axios.create({
     // baseURL: 'http://localhost:8080/neyanboon'
-    baseURL: 'http://185.166.107.141:32245/neyanboon'
+    baseURL: 'http://localhost:3000'
   });
 
   constructor() {
@@ -116,15 +116,15 @@ class ApiClass {
 
   login(username: string, password: string): AxiosPromise<LoginResponse> {
     const data = {id: username, password};
-    return this.axiosInstance.post<LoginResponse>('/login', data);
+    return this.axiosInstance.post<LoginResponse>('/auth/login', data);
   }
 
   register(firstName: string, lastName: string, bio: string, profilePictureUrl: string, jobTitle: string, password: string,
-           username: string): AxiosPromise<{}> {
+           email: string): AxiosPromise<{}> {
     const data = {
-      firstName, lastName, bio, profilePictureUrl, jobTitle, password, id: username
+      firstName, lastName, bio, profilePictureUrl, jobTitle, password, email
     };
-    return this.axiosInstance.post<{}>('/register', data);
+    return this.axiosInstance.post<{}>('/auth/register', data);
   }
 }
 
