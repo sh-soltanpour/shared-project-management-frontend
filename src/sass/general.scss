@@ -1,0 +1,68 @@
+// @import '~bootstrap/scss/bootstrap';
+
+@import './shared/vars';
+@import 'fonts';
+
+////////// reset
+@import 'reset';
+
+// ::placeholder,::-moz-placeholder {
+//   font-family: 'IRANSans';
+//   direction: rtl;
+// }
+.rtl-placeholder::-webkit-input-placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
+.rtl-placeholder::-moz-placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
+.rtl-placeholder:-ms-input-placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
+.rtl-placeholder:-moz-placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
+.rtl-placeholder::placeholder {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: 'IRANSans';
+  background: #f6f6f6;
+  padding-top: map-get($map: $header, $key: height);
+  min-height: 100vh;
+}
+
+main {
+  min-height: calc(100vh - #{map-get($header, height) + map-get($footer, height)});
+  padding-bottom: 1px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+button {
+  font-family: 'IRANSans';
+}
+.ltr {
+  direction: ltr;
+}
+.rtl {
+  direction: rtl;
+}
+
+#slider {
+  display: block;
+  width: 100%;
+  padding: 80px 0;
+  background: #c8eef3;
+  margin-bottom: -100px;
+  box-shadow: inset 0 -10px 10px -10px #add5d7;
+}

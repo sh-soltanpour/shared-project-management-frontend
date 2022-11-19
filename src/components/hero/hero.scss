@@ -1,0 +1,46 @@
+#slider {
+  .slider-container {
+    h1 {
+      font-size: 36px;
+      margin-bottom: 22px;
+      font-weight: bold;
+      color: #00838f;
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: justify;
+      text-indent: 35px;
+    }
+    .main-search-box {
+      min-width: 400px;
+      width: 60%;
+      background: #e0f7fa;
+      box-shadow: 0 1px 6px rgba(0, 96, 100, 0.15);
+      margin-bottom: 10px;
+      border-bottom: 3px solid #00acc1;
+      display: flex;
+      margin: 25px auto 0;
+      font-size: 19px;
+      > input {
+        flex: 1 0 auto;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        padding: 2px 12px;
+        color: #006064;
+        &::placeholder {
+          color: rgba($color: #006064, $alpha: 0.5);
+        }
+      }
+      > button {
+        background: #00acc1;
+        border: none;
+        color: #ffffff;
+        padding: 5px 15px;
+        margin: 5px;
+      }
+    }
+  }
+}
+// .main-search-box > input

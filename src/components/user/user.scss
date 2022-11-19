@@ -1,0 +1,73 @@
+@import '../../sass/shared/vars';
+$avatar-height: 200px;
+#slider {
+  padding: 75px 0;
+  margin-bottom: -($avatar-height / 2);
+}
+.user-header-container {
+  display: flex;
+  align-items: flex-end;
+  .user-avatar {
+    flex: 0 0 $avatar-height;
+    min-height: 100px;
+    margin-left: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    background: rgba($color: #ffffff, $alpha: 0.8);
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 50%;
+      left: -90px;
+      width: 120px;
+      height: 30px;
+      background: rgba(86, 163, 173, 0.5);
+      transform: skew(-35deg);
+      box-shadow: -10px 0 #9bd9e1, inset 0 -8px 10px -12px rgba(0, 0, 0, 0.3);
+    }
+    > img {
+      position: relative;
+      z-index: 10;
+      max-width: 100%;
+      border-radius: 15px;
+      width: 180px;
+      height: 180px;
+    }
+  }
+  .user-content {
+    flex: 1 0 0;
+    min-width: 0;
+    margin-bottom: 10px;
+    .user-name {
+      font-size: 32px;
+      font-weight: bold;
+      color: #444444;
+    }
+    .user-nickname {
+      font-size: 16px;
+      margin-top: 13px;
+      color: #666666;
+      display: block;
+    }
+  }
+}
+
+.user-description {
+  margin: 25px 0;
+  > p {
+    line-height: 1.9;
+    font-size: 16px;
+    color: #444;
+    text-align: justify;
+  }
+}
+
+.user-skills {
+  margin: 25px 0;
+  h4 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+}

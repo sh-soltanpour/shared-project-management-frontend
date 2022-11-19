@@ -1,0 +1,21 @@
+$box-shadow: 0 1px 4px
+  rgba(
+    $color: #000000,
+    $alpha: 0.1
+  );
+$box-shadow-hover: 0 2px 8px
+  rgba(
+    $color: #000000,
+    $alpha: 0.15
+  );
+$header: (
+  height: 60px
+);
+$footer: (
+  height: 65px
+);
+$job-item: (
+  image-height: 128px
+);
+
+$register-form-width: 640px;
