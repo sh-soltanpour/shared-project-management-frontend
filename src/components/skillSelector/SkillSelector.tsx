@@ -20,11 +20,11 @@ export default class SkillSelector extends Component<Props, State> {
   render(): JSX.Element {
     return (
       <div className="d-flex align-items-center mb-3">
-        <h4 className="ml-3">مهارت‌ها:</h4>
+        <h4 className="ml-3">Skills</h4>
         <div className="add-skill-form-container">
           <form onSubmit={this.onSubmit} className="add-skill-form">
-            <select onChange={this.onChange} className="add-skill-input" name="" placeholder="انتخاب مهارت">
-              <option value="">-- انتخاب مهارت --</option>
+            <select onChange={this.onChange} className="add-skill-input" name="" placeholder="Choose skills">
+              <option value="">choose skilss</option>
               {this.props.skills.map(skill => {
                 return (
                   <option key={skill.name} value={skill.name}>
@@ -33,7 +33,7 @@ export default class SkillSelector extends Component<Props, State> {
                 );
               })}
             </select>
-            <button type="submit">افزودن مهارت</button>
+            <button type="submit">Add skills</button>
           </form>
         </div>
       </div>

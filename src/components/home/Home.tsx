@@ -77,7 +77,7 @@ export default class HomeComponent extends Component<Props, State> {
                 </ul>
                 {showLoadMore && !isSearching && (
                   <button className="load-more-btn" onClick={this.onLoadMore}>
-                    نمایش بیشتر
+                    show more
                   </button>
                 )}
               </section>

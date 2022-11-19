@@ -54,7 +54,7 @@ export default class ProjectComponent extends Component<Props, State> {
       return (
         <li className="project-deadline">
           <i className="flaticon-deadline"/>
-          <span className="ml-2 font-weight-bold">زمان باقی‌مانده:</span>
+          <span className="ml-2 font-weight-bold">time</span>
           <span>{DateUtil.dateDifference(this.state.now, new Date(this.state.project.deadline)).toPersianString()}</span>
         </li>
       );
@@ -62,7 +62,7 @@ export default class ProjectComponent extends Component<Props, State> {
       return (
         <li className="project-deadline ended">
           <i className="flaticon-deadline"/>
-          <span className="font-weight-bold">مهلت تمام شده</span>
+          <span className="font-weight-bold">timeout</span>
         </li>
       );
     }

@@ -42,7 +42,7 @@ export default class Sidebar extends Component<Props, State> {
     return (
       <aside>
         <div className="search-box">
-          <input className="search-input" type="text" placeholder="جستجو نام کاربر" onChange={this.onChangeSearchInput} />
+          <input className="search-input" type="text" placeholder="search" onChange={this.onChangeSearchInput} />
         </div>
         <div id="user-list-wrapper">
           <ul className="user-list">{usersComponents}</ul>

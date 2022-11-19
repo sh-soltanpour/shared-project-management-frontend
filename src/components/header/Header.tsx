@@ -24,10 +24,10 @@ export default class Header extends Component<Props, State> {
             </Link>
             <nav className="col-auto row align-items-center">
               <div id="profile" className="col-auto clickable">
-                <Link to="/profile">حساب کاربری</Link>
+                <Link to="/profile">User Account</Link>
               </div>
               <div id="logout" className="col-auto clickable">
-                <span onClick={this.logout}>خروج</span>
+                <span onClick={this.logout}>Logout</span>
               </div>
             </nav>
           </div>

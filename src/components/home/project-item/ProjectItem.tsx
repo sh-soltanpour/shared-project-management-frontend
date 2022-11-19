@@ -38,22 +38,22 @@ export default class ProjectListItemComponent extends Component<Props, State> {
                 <div className="job-item-date">
                   {!this.projectExpired() ? (
                     <span>
-                      <span className="job-item-date-label">زمان باقی‌مانده:</span>
+                      <span className="job-item-date-label">time</span>
                       <span>{DateUtil.dateDifference(this.state.now, new Date(deadline)).toPersianString()}</span>
                     </span>
                   ) : (
-                    <span>مهلت تمام شده</span>
+                    <span>time</span>
                   )}
                 </div>
               </div>
               <p className="job-item-desc">{description}</p>
               <div className="job-item-footer">
                 <div className="budget-container">
-                  <span className="budget-label">بودجه:</span>
+                  <span className="budget-label">budget:</span>
                   <span className="budget-content">{StringUtil.convertEngNumbersToPersian(budget.toString())} تومان</span>
                 </div>
                 <div className="skills-container">
-                  <span className="skills-label">مهارت‌ها:</span>
+                  <span className="skills-label">skils:</span>
                   <ul className="skill-list">
                     {skills.map(s => (
                       <li key={s.name} className="skill-item">

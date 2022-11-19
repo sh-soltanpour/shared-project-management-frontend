@@ -10,7 +10,7 @@ export default class LoginComponent extends Component<Props, State> {
   private isFormValid(): boolean {
     const {password, username} = this.state;
     if (!password || !username) {
-      ToastUtil.error('لطفا همه‌ی فیلدها را کامل کنید');
+      ToastUtil.error('Please try to complete all the fields');
       return false;
     }
     return true;
@@ -37,7 +37,7 @@ export default class LoginComponent extends Component<Props, State> {
           this.setState({redirectHome: true})
         }
       }).catch(response => {
-        ToastUtil.error("نام کاربری یا رمز عبور اشتباه است")
+        ToastUtil.error(" Invalid username or password")
       });
 
     }
@@ -68,7 +68,7 @@ export default class LoginComponent extends Component<Props, State> {
                     name="username"
                     type="text"
                     className="ltr rtl-placeholder"
-                    placeholder="نام کاربری"
+                    placeholder="User Name"
                     onChange={this.onUsernameChange}
                     required
                   />
@@ -78,7 +78,7 @@ export default class LoginComponent extends Component<Props, State> {
                     name="password"
                     type="password"
                     className="ltr rtl-placeholder"
-                    placeholder="کلمه عبور"
+                    placeholder="Password"
                     onChange={this.onPasswordChange}
                     required
                   />
@@ -89,15 +89,15 @@ export default class LoginComponent extends Component<Props, State> {
                 ورود
               </button>
               <p className="message">
-                <span>ثبت‌نام نکرده‌اید؟ </span>
-                <Link to="/register">ثبت‌نام کنید</Link>
+                <span>Dont have an account yet? </span>
+                <Link to="/register">Register</Link>
               </p>
             </form>
           </div>
         </div>
         <LoginSlider/>
         <footer className="bg-transparent">
-          <span className="footer-text">&#169; تمامی حقوق این سایت متعلق به جاب‌اونجا است</span>
+          // <span className="footer-text">&#169; تمامی حقوق این سایت متعلق به جاب‌اونجا است</span>
         </footer>
       </div>
     );
