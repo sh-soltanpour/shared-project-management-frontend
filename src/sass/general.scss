@@ -33,7 +33,7 @@
 
 body {
   direction: ltr;
-  text-align: right;
+  text-align: left;
   font-family: 'IRANSans';
   background: #f6f6f6;
   padding-top: map-get($map: $header, $key: height);

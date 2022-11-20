@@ -15,7 +15,7 @@ export default class ProjectComponent extends Component<Props, State> {
     this.state = {
       project: new Project(),
       now: new Date(),
-      bidRequested: false,
+      colabRequested: false,
       bidAmount: 0
     };
   }
@@ -36,9 +36,9 @@ export default class ProjectComponent extends Component<Props, State> {
       })
     ;
 
-    Api.bidRequested(projectId).then(res => {
-      this.setState({...this.state, bidRequested: res.data.bidRequested});
-    });
+    // Api.bidRequested(projectId).then(res => {
+    //   this.setState({...this.state, bidRequested: res.data.bidRequested});
+    // });
   }
 
   private projectExpired(): boolean {
@@ -55,7 +55,7 @@ export default class ProjectComponent extends Component<Props, State> {
         <li className="project-deadline">
           <i className="flaticon-deadline"/>
           <span className="ml-2 font-weight-bold">time</span>
-          <span>{DateUtil.dateDifference(this.state.now, new Date(this.state.project.deadline)).toPersianString()}</span>
+          <span>{DateUtil.dateDifference(this.state.now, new Date(this.state.project.date_created!)).toPersianString()}</span>
         </li>
       );
     } else {
@@ -72,15 +72,11 @@ export default class ProjectComponent extends Component<Props, State> {
     let newBidAmount = parseInt(event.currentTarget.value);
     this.setState({...this.state, bidAmount: newBidAmount});
   };
-  private sendBidRequest = (event: React.FormEvent<HTMLFormElement>) => {
+  private sendColabRequest = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (this.state.bidAmount === 0) {
-      ToastUtil.error('مقدار وارد شده صحیح نیست');
-      return
-    }
-    Api.bidRequest(this.state.project.id, this.state.bidAmount).then(res => {
+    Api.colabRequest(this.state.project.id).then(res => {
         if (res)
-          this.setState({...this.state, bidRequested: true, project: res.data})
+          this.setState({...this.state, colabRequested: true, project: res.data})
       }
     );
   };
@@ -93,24 +89,24 @@ export default class ProjectComponent extends Component<Props, State> {
           <span>Time out</span>
         </div>
       );
-    } else if (this.state.bidRequested) {
+    } else if (this.state.colabRequested) {
       return (
         <div className="already-bid">
-          <i className="flaticon-check-mark ml-2"/>
-          <span>ALREADY EXIST</span>
+          <i className="ml-2"/>
+          <span>Collaboration Request is Pending For Acceptance</span>
         </div>
       );
     } else {
       return (
         <div>
-          <h4>ثبت پیشنهاد</h4>
-          <form onSubmit={this.sendBidRequest} className="bid-form">
-            <div className="input-wrapper">
-              <input type="number" onChange={this.changeBidAmount}
-                     placeholder="پیشنهاد خود را وارد کنید"/>
-              <span className="bid-label">تومان</span>
-            </div>
-            <button type="submit">ارسال</button>
+          {/*<h4>Collaboration Request</h4>*/}
+          <form onSubmit={this.sendColabRequest} className="bid-form">
+            {/*<div className="input-wrapper">*/}
+            {/*  <input type="number" onChange={this.changeBidAmount}*/}
+            {/*         placeholder="پیشنهاد خود را وارد کنید"/>*/}
+            {/*  <span className="bid-label">تومان</span>*/}
+            {/*</div>*/}
+            <button type="submit">Send Collaboration Request</button>
           </form>
         </div>
       );
@@ -141,8 +137,8 @@ export default class ProjectComponent extends Component<Props, State> {
                   {this.projectDeadline()}
                   <li className="project-budget">
                     <i className="flaticon-money-bag-1"/>
-                    <span className="ml-2">بودجه:</span>
-                    <span>{StringUtil.convertEngNumbersToPersian(budget.toString())}CAD</span>
+                    {/*<span className="ml-2">بودجه:</span>*/}
+                    {/*<span>{StringUtil.convertEngNumbersToPersian(budget.toString())}CAD</span>*/}
                   </li>
                   {this.projectExpired() &&
                   <li className="won-user">
@@ -159,7 +155,7 @@ export default class ProjectComponent extends Component<Props, State> {
               </div>
             </div>
             <div className="project-skills">
-              <h4>مهارت‌های لازم:</h4>
+              <h4>What can we put here?</h4>
               <SkillList type={SkillType.simple} skills={skills}/>
             </div>
             <div className="project-form">{this.projectForm()}</div>
@@ -187,6 +183,6 @@ interface Props extends RouteComponentProps<MatchParams> {
 interface State {
   project: Project;
   now: Date;
-  bidRequested: boolean;
+  colabRequested: boolean;
   bidAmount: number;
 }

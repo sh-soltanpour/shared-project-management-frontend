@@ -93,9 +93,11 @@ $padding: 35px;
     }
   }
   .project-form {
+    justify-content: center;
     .already-bid {
-      color: #388e3c;
+      color: #eed202;
       font-size: 18px;
+      text-align: center;
     }
     .deadline-reached {
       font-size: 18px;

@@ -30,9 +30,8 @@ class DateDifference {
   }
 
   public toPersianString(): string {
-    return StringUtil.convertEngNumbersToPersian(
-      `${this.day} روز و ${this.hour} ساعت و ${this.minute} دقیقه و ${this.second} ثانیه`
-    );
+    return `${this.day} Days ${this.hour} Hours `
+
   }
 }
 export const DateUtil = new DateUtilClass();

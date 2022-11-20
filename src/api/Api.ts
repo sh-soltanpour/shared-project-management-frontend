@@ -74,17 +74,8 @@ class ApiClass {
     return this.axiosInstance.get<BidRequestedResponse>(`/projects/bids?projectId=${projectId}`);
   }
 
-  bidRequest(projectId: string, bidAmount: number): AxiosPromise<Project> {
-    let data = {
-      biddingUser: {
-        id: '1'
-      },
-      project: {
-        id: projectId
-      },
-      bidAmount: bidAmount
-    };
-    return this.axiosInstance.post<Project>('/projects/bids', data);
+  colabRequest(projectId: string): AxiosPromise<Project> {
+    return this.axiosInstance.post<Project>(`/projects/${projectId}/colabs`, {});
   }
 
   getUser(userId: string): AxiosPromise<User> {

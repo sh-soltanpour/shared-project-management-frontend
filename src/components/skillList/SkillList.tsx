@@ -30,11 +30,11 @@ export default class SkillList extends Component<Props, {}> {
   render(): JSX.Element {
     return (
       <ul className="skills-list">
-        {this.props.skills.map(skill => (
-          <li key={skill.name}>
-            <SkillItem name={skill.name} point={skill.point} type={this.getSkillType(skill)} onClick={this.getOnClick(skill)} />
-          </li>
-        ))}
+        {/*{this.props.skills.map(skill => (*/}
+        {/*  <li key={skill.name}>*/}
+        {/*    <SkillItem name={skill.name} point={skill.point} type={this.getSkillType(skill)} onClick={this.getOnClick(skill)} />*/}
+        {/*  </li>*/}
+        {/*))}*/}
       </ul>
     );
   }
