@@ -12,8 +12,8 @@ import LoginResponse from '../models/LoginResponse';
 class ApiClass {
   private axiosInstance = axios.create({
     // baseURL: 'http://localhost:8080/neyanboon'
-    baseURL: 'http://localhost:3001'
-    // baseURL: 'https://afb7-136-159-213-149.ngrok.io'
+    // baseURL: 'http://localhost:3001'
+    baseURL: 'https://afb7-136-159-213-149.ngrok.io'
   });
 
   constructor() {
