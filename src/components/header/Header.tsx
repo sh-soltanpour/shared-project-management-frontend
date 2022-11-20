@@ -25,9 +25,6 @@ export default class Header extends Component<Props, State> {
               <div id="profile" className="col-auto clickable">
                 <Link to="/">Home</Link>
               </div>
-              <div id="profile" className="col-auto clickable">
-                <Link to="/profile">User Account</Link>
-              </div>
               <div id="logout" className="col-auto clickable">
                 <span onClick={this.logout}>Logout</span>
               </div>

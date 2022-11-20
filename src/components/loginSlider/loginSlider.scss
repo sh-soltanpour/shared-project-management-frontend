@@ -25,49 +25,49 @@
 }
 
 .slide:nth-child(1) {
-  background-image: url(../../assets/images/slide1.jpg);
+  background-image: url(../../assets/images/slide4.jpg);
   background-size: cover;
   background-position: center center;
 }
 
 .slide:nth-child(2) {
-  background-image: url(../../assets/images/slide2.jpg);
-  background-size: cover;
-  background-position: center center;
-}
-
-.slide:nth-child(3) {
   background-image: url(../../assets/images/slide3.jpg);
   background-size: cover;
   background-position: center center;
 }
 
+.slide:nth-child(3) {
+  background-image: url(../../assets/images/slide2.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
 .slide:nth-child(4) {
-  background-image: url(../../assets/images/slide4c.jpg);
+  background-image: url(../../assets/images/slide1.jpg);
   background-size: cover;
   background-position: center center;
 }
 
 .slide-number {
   color: #000;
-  text-align: left;
+  text-align: center;
   font-size: 10em;
 }
 
-@keyframes slide {
-  20% {
-    transform: translateX(0px);
-  }
-  30%,
-  40% {
-    transform: translateX(100vw);
-  }
-  50%,
-  60% {
-    transform: translateX(200vw);
-  }
-  70%,
-  80% {
-    transform: translateX(300vw);
-  }
-}
+//@keyframes slide {
+//  20% {
+//    transform: translateX(0px);
+//  }
+//  30%,
+//  40% {
+//    transform: translateX(100vw);
+//  }
+//  50%,
+//  60% {
+//    transform: translateX(200vw);
+//  }
+//  70%,
+//  80% {
+//    transform: translateX(300vw);
+//  }
+//}
