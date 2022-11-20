@@ -87,7 +87,7 @@ export default class RegisterComponent extends Component<{}, State> {
             <form className="register-form" onSubmit={this.onSubmit}>
               <div className="row">
                 <div className="col-6">
-                  <input name="firstName" type="text" className="ltr" placeholder="Name" onChanege={this.onChange} required />
+                  <input name="firstName" type="text" className="ltr" placeholder="Name" onChange={this.onChange} required />
                 </div>
                 <div className="col-6">
                   <input

@@ -19,9 +19,8 @@ export default class Header extends Component<Props, State> {
       <header>
         <div className="container h-100">
           <div id="header" className="row align-items-center justify-content-between">
-            <Link id="logo" className="col-auto d-flex align-items-center" to={`/`}>
-              <img src={logo} alt="logo" />
-            </Link>
+        
+
             <nav className="col-auto row align-items-center">
               <div id="profile" className="col-auto clickable">
                 <Link to="/profile">User Account</Link>
