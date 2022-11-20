@@ -12,7 +12,7 @@ import LoginResponse from '../models/LoginResponse';
 class ApiClass {
   private axiosInstance = axios.create({
     // baseURL: 'http://localhost:8080/neyanboon'
-    baseURL: 'http://localhost:3000'
+    baseURL: 'http://localhost:3001'
   });
 
   constructor() {
@@ -20,7 +20,7 @@ class ApiClass {
       config => {
         if (config.url && (config.url.includes("/login") || config.url.includes("/register")))
           return config;
-        config.headers["X-Auth-Token"] = localStorage.getItem("accessToken");
+        config.headers["Authorization"] = "Bearer " + localStorage.getItem("accessToken");
         return config;
       },
       error => Promise.reject(error)
@@ -60,7 +60,7 @@ class ApiClass {
   }
 
   getAllProjects(pageSize: number, pageNumber: number) {
-    return this.axiosInstance.get<ProjectListItem[]>('/projects', {params: {pageNumber, pageSize}});
+    return this.axiosInstance.get<ProjectListItem[]>('/projects');
   }
 
   getProject(projectId: string): AxiosPromise<Project> {
@@ -115,7 +115,7 @@ class ApiClass {
   }
 
   login(username: string, password: string): AxiosPromise<LoginResponse> {
-    const data = {id: username, password};
+    const data = {email: username, password};
     return this.axiosInstance.post<LoginResponse>('/auth/login', data);
   }
 

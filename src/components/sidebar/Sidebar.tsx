@@ -31,9 +31,9 @@ export default class Sidebar extends Component<Props, State> {
     this.getAllUsers();
   }
   private getAllUsers() {
-    Api.getAllUsers().then(response => {
-      if (response) this.setState({ usersList: response.data });
-    });
+    // Api.getAllUsers().then(response => {
+    //   if (response) this.setState({ usersList: response.data });
+    // });
   }
 
   render() {

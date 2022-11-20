@@ -26,10 +26,10 @@ export default class ProjectListItemComponent extends Component<Props, State> {
   }
 
   render() {
-    const { budget, deadline, imageUrl, description, title, skills, id } = this.props.project;
+    const {deadline, imageUrl, description, title, _id } = this.props.project;
     return (
       <li className={`job-item-container ${this.projectExpired() ? 'ended' : ''}`}>
-        <Link to={`projects/${id}`}>
+        <Link to={`projects/${_id}`}>
           <div className="job-item">
             <img className="job-item-avatar" src={imageUrl} alt="" />
             <div className="job-item-content">
@@ -50,17 +50,17 @@ export default class ProjectListItemComponent extends Component<Props, State> {
               <div className="job-item-footer">
                 <div className="budget-container">
                   <span className="budget-label">budget:</span>
-                  <span className="budget-content">{StringUtil.convertEngNumbersToPersian(budget.toString())} تومان</span>
+                  {/*<span className="budget-content">{StringUtil.convertEngNumbersToPersian(budget.toString())} تومان</span>*/}
                 </div>
                 <div className="skills-container">
                   <span className="skills-label">skils:</span>
-                  <ul className="skill-list">
-                    {skills.map(s => (
-                      <li key={s.name} className="skill-item">
-                        {s.name}
-                      </li>
-                    ))}
-                  </ul>
+                  {/*<ul className="skill-list">*/}
+                  {/*  {skills.map(s => (*/}
+                  {/*    <li key={s.name} className="skill-item">*/}
+                  {/*      {s.name}*/}
+                  {/*    </li>*/}
+                  {/*  ))}*/}
+                  {/*</ul>*/}
                 </div>
               </div>
             </div>

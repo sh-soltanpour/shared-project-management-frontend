@@ -1,7 +1,7 @@
 import ProjectListItemSkills from './ProjectListItemSkills';
 
 export default interface ProjectListItem {
-  id: string;
+  _id: string;
   title: string;
   skills: ProjectListItemSkills[];
   imageUrl: string;
