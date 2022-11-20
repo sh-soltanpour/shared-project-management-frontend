@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import SkillType from '../../enums/SkillType';
 import './skillItem.scss';
+import Api from '../../api/Api';
 
 export default class SkillItem extends Component<Props, State> {
   endorsedClass(): string {
     return this.props.type === SkillType.endorsed ? 'endorsed' : '';
+  }
+  accept(){
+      this.props.acceptCallback(this.props.colabId);
+  }
+  reject(){
+      this.props.rejectCallback(this.props.colabId);
   }
 
   get_buttons(): JSX.Element {
     if (this.props.status == "pending") {
         return (
             <div>
-                <div className="remove-skill">Reject</div>
-                <div className="skill-endorse">Accept</div>
+                <div onClick={()=>this.reject()} className="remove-skill">Reject</div>
+                <div onClick={()=>this.accept()} className="skill-endorse">Accept</div>
             </div>
         );
     }
@@ -43,10 +50,14 @@ export default class SkillItem extends Component<Props, State> {
 interface Props {
   name: string;
   university: string;
+  projectId: string;
+  colabId: string;
   status: string;
   point: number;
   type: SkillType;
   onClick: (skillName: string) => void;
+  acceptCallback: (arg: string)=>(void);
+  rejectCallback: (arg: string)=>(void);
 }
 
 interface State {}

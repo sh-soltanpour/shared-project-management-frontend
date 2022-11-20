@@ -34,7 +34,11 @@ export default class SkillList extends Component<Props, {}> {
       <ul className="skills-list">
         {this.props.skills.map(skill => (
           <li key={skill.status}>
-            <SkillItem name={skill.creator_name} status={skill.status} university={skill.creator_university} point={123} type={this.getSkillType(skill)} onClick={this.getOnClick(skill)} />
+            <SkillItem
+                key={skill._id}
+                acceptCallback={this.props.acceptCallback}
+                rejectCallback={this.props.rejectCallback}
+                projectId={this.props.projectId} colabId={skill._id} name={skill.creator_name} status={skill.status} university={skill.creator_university} point={123} type={this.getSkillType(skill)} onClick={this.getOnClick(skill)} />
           </li>
         ))}
       </ul>
@@ -44,6 +48,9 @@ export default class SkillList extends Component<Props, {}> {
 
 interface Props {
   skills: Colab[];
+  acceptCallback: (arg: string)=>(void);
+  rejectCallback: (arg: string)=>(void);
+  projectId: string;
   type: SkillType;
   onEndorse: (skillName: string) => void;
   onDelete: (skillName: string) => void;

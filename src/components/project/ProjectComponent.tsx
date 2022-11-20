@@ -51,6 +51,18 @@ export default class ProjectComponent extends Component<Props, State> {
     clearInterval(this.deadlineRefresh);
   }
 
+  acceptColab = (colabId: string) => {
+    Api.acceptColab(this.props.match.params.projectId, colabId).then(data => {
+      this.setState({})
+    })
+  }
+
+  rejectColab = (colabId: string) => {
+    Api.rejectColab(this.props.match.params.projectId, colabId).then(data => {
+      this.setState({})
+    })
+  }
+
   projectDeadline(): JSX.Element {
     if (!this.projectExpired()) {
       return (
@@ -188,7 +200,12 @@ export default class ProjectComponent extends Component<Props, State> {
             </div>
             <div className="project-skills">
               <h4>Collaboration Requests</h4>
-              <SkillList type={SkillType.simple} skills={this.state.project.colabs}/>
+              <SkillList
+                  acceptCallback={this.acceptColab}
+                  rejectCallback={this.rejectColab}
+                  projectId={this.state.project._id}
+                  type={SkillType.simple}
+                  skills={this.state.project.colabs}/>
             </div>
             <div className="project-form">{this.projectForm()}</div>
           </div>

@@ -12,8 +12,8 @@ import LoginResponse from '../models/LoginResponse';
 class ApiClass {
   private axiosInstance = axios.create({
     // baseURL: 'http://localhost:8080/neyanboon'
-    // baseURL: 'http://localhost:3001'
-    baseURL: 'https://afb7-136-159-213-149.ngrok.io'
+    baseURL: 'http://localhost:3001'
+    // baseURL: 'https://afb7-136-159-213-149.ngrok.io'
   });
 
   constructor() {
@@ -52,6 +52,14 @@ class ApiClass {
 
   searchProjects(searchTerm: string) {
     return this.axiosInstance.get<ProjectListItem[]>('/projects/search', {params: {q: searchTerm}});
+  }
+
+  acceptColab(projectId: string, colabId: string){
+    return this.axiosInstance.put(`/projects/${projectId}/colabs/${colabId}`)
+  }
+
+  rejectColab(projectId: string, colabId: string){
+    return this.axiosInstance.delete(`/projects/${projectId}/colabs/${colabId}`)
   }
 
   searchUsers(searchTerm: string) {
