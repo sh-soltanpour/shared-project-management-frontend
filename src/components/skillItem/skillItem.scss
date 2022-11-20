@@ -47,7 +47,7 @@
       transition: all 0.2s ease;
     }
   }
-  &:hover {
+
     .skill-endorse {
       opacity: 1;
       background: #00b800;
@@ -58,7 +58,7 @@
       background: #d50000;
       color: #ffffff;
     }
-  }
+
   &.endorsed {
     cursor: default;
     .skill-rating {

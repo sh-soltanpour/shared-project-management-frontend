@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Redirect, RouteComponentProps} from 'react-router';
 import './project.scss';
 import Project from '../../models/Project';
+import Colab from '../../models/Colab';
 import Api from '../../api/Api';
 import {DateUtil} from '../../utils/DateUtil';
 import SkillList from '../skillList/SkillList';
@@ -16,7 +17,8 @@ export default class ProjectComponent extends Component<Props, State> {
       project: new Project(),
       now: new Date(),
       colabRequested: false,
-      bidAmount: 0
+      bidAmount: 0,
+      colabs: []
     };
   }
 
@@ -126,7 +128,7 @@ export default class ProjectComponent extends Component<Props, State> {
           <span>Collaboration Request is Pending For Acceptance</span>
         </div>
       );
-    } else {
+    } else if (!this.state.project.is_owner) {
       return (
         <div>
           {/*<h4>Collaboration Request</h4>*/}
@@ -185,8 +187,8 @@ export default class ProjectComponent extends Component<Props, State> {
               </div>
             </div>
             <div className="project-skills">
-              <h4>What can we put here?</h4>
-              <SkillList type={SkillType.simple} skills={skills}/>
+              <h4>Collaboration Requests</h4>
+              <SkillList type={SkillType.simple} skills={this.state.project.colabs}/>
             </div>
             <div className="project-form">{this.projectForm()}</div>
           </div>
@@ -215,4 +217,5 @@ interface State {
   now: Date;
   colabRequested: boolean;
   bidAmount: number;
+  colabs: Colab[]
 }

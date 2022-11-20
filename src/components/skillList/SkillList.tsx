@@ -3,15 +3,17 @@ import SkillType from '../../enums/SkillType';
 import ProjectSkill from '../../models/ProjectSkill';
 import './skillList.scss';
 import SkillItem from '../skillItem/SkillItem';
+import Colab from "../../models/Colab";
 
 export default class SkillList extends Component<Props, {}> {
   static defaultProps = {
-    type: SkillType.endorsed,
+    type: SkillType.pending,
     onDelete: (skillName: string) => {},
     onEndorse: (skillName: string) => {}
   };
 
-  private getSkillType(skill: ProjectSkill): SkillType {
+  private getSkillType(skill: Colab): SkillType {
+    return SkillType.endorsed;
     if (this.props.type === SkillType.deletable || this.props.type === SkillType.simple) return this.props.type;
     return skill.endorsed ? SkillType.endorsed : SkillType.endorsable;
   }
@@ -30,18 +32,18 @@ export default class SkillList extends Component<Props, {}> {
   render(): JSX.Element {
     return (
       <ul className="skills-list">
-        {/*{this.props.skills.map(skill => (*/}
-        {/*  <li key={skill.name}>*/}
-        {/*    <SkillItem name={skill.name} point={skill.point} type={this.getSkillType(skill)} onClick={this.getOnClick(skill)} />*/}
-        {/*  </li>*/}
-        {/*))}*/}
+        {this.props.skills.map(skill => (
+          <li key={skill.status}>
+            <SkillItem name={skill.creator_name} status={skill.status} university={skill.creator_university} point={123} type={this.getSkillType(skill)} onClick={this.getOnClick(skill)} />
+          </li>
+        ))}
       </ul>
     );
   }
 }
 
 interface Props {
-  skills: ProjectSkill[];
+  skills: Colab[];
   type: SkillType;
   onEndorse: (skillName: string) => void;
   onDelete: (skillName: string) => void;

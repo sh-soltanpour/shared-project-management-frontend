@@ -1,7 +1,6 @@
 enum SkillType{
-  simple,
-  endorsable,
-  endorsed,
-  deletable
+  rejected,
+  accepted,
+  pending
 }
 export default SkillType;

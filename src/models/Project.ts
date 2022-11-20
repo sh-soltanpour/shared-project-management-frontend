@@ -6,6 +6,8 @@ export default class Project {
     _id: string = '';
     title: string = '';
     colab: Colab | null = null;
+    colabs: Colab[] = [];
+    is_owner: boolean = false;
     skills: ProjectSkill[] = [];
     status: string = '';
     date_created: Date | null = null;
