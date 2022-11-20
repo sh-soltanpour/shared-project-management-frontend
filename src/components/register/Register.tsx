@@ -82,9 +82,6 @@ export default class RegisterComponent extends Component<{}, State> {
       <div>
         <div className="login-page">
           <div className="form">
-            <Link id="logo" className="col-auto d-flex align-items-center" to="/">
-              <img src={logo} alt="logo" />
-            </Link>
             <form className="register-form" onSubmit={this.onSubmit}>
               <div className="row">
                 <div className="col-6">

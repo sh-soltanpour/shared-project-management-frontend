@@ -58,7 +58,6 @@ export default class LoginComponent extends Component<Props, State> {
       <div>
         <div className="login-page">
           <div className="form">
-
             <form className="register-form" onSubmit={this.onSubmitLogin}>
               <div className="row">
                 <div className="col-12">
