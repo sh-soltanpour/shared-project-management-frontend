@@ -94,7 +94,7 @@ export default class ProjectComponent extends Component<Props, State> {
     event.preventDefault();
     Api.colabRequest(this.props.match.params.projectId).then(res => {
         if (res)
-          this.setState({...this.state, colabRequested: true, project: res.data})
+          this.setState({...this.state, colabRequested: true})
       }
     );
   };
@@ -103,7 +103,7 @@ export default class ProjectComponent extends Component<Props, State> {
     if (this.state.project.project.discordLink)
       return (
           <div className="discord-link">
-            <a href={this.state.project.project.discordLink}>Join Discord</a>
+            <a target="_blank" href={this.state.project.project.discordLink}>Join Discord</a>
           </div>
       )
     else
@@ -138,7 +138,6 @@ export default class ProjectComponent extends Component<Props, State> {
       else {
         return (
             <div className="bid-rejected">
-              <i className="flaticon-danger ml-2"/>
               <span> Your Collaboration Request is Rejected!</span>
             </div>
         )

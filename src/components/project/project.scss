@@ -13,7 +13,7 @@ $padding: 35px;
     // float: right;
     width: 180px;
     height: 180px;
-    margin: 0 0 20px 30px;
+    margin: 0 10px 20px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,7 +75,7 @@ $padding: 35px;
       text-align: justify;
       line-height: 1.6;
       margin-bottom: 15px;
-      text-indent: 20px;
+      text-indent: 25px;
       &:last-child {
         margin-bottom: 0;
       }
@@ -97,17 +97,17 @@ $padding: 35px;
   .project-form {
     justify-content: center;
     .bid-rejected {
-      color: #ee0225;
+      color: #e71259;
       font-size: 18px;
       text-align: center;
     }
     .bid-accepted {
-      color: #02ee06;
+      color: #058809;
       font-size: 18px;
       text-align: center;
     }
     .already-bid {
-      color: #eed202;
+      color: #ce00ff;
       font-size: 18px;
       text-align: center;
     }
@@ -128,6 +128,7 @@ $padding: 35px;
     .bid-form {
       display: flex;
       align-items: stretch;
+      justify-content: center;
       .input-wrapper {
         border: 2px solid #00bcd4;
         background: #ffffff;
@@ -146,7 +147,7 @@ $padding: 35px;
       }
       > button {
         padding: 0 10px;
-        background: #00acc1;
+        background: #7344D2;
         border-radius: 4px;
         color: #ffffff;
         border: none;

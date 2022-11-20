@@ -40,15 +40,15 @@ export default class ProjectListItemComponent extends Component<Props, State> {
               <p className="job-item-desc">{description}</p>
               <div className="job-item-footer">
                 <div className="budget-container">
-                  <span className="budget-label">University: {"University of Calgary"}</span>
+                  <span className="budget-label">{this.props.project.university}</span>
                   {/*<span className="budget-content">{StringUtil.convertEngNumbersToPersian(budget.toString())} تومان</span>*/}
                 </div>
                 <div className="budget-container">
-                  <span className="budget-label">Major: {"Computer"}</span>
+                  <span className="budget-label">{this.props.project.major}</span>
                   {/*<span className="budget-content">{StringUtil.convertEngNumbersToPersian(budget.toString())} تومان</span>*/}
                 </div>
                 <div className="skills-container">
-                  <span className="skills-label">Professor: {"Dr. Andrew Ng"}</span>
+                  <span className="skills-label">{this.props.project.professor}</span>
                   {/*<ul className="skill-list">*/}
                   {/*  {skills.map(s => (*/}
                   {/*    <li key={s.name} className="skill-item">*/}

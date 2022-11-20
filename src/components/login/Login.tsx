@@ -58,6 +58,7 @@ export default class LoginComponent extends Component<Props, State> {
       <div>
         <div className="login-page">
           <div className="form">
+            <h1 className="welcome-header">Welcome to Project Duo</h1>
             <form className="register-form" onSubmit={this.onSubmitLogin}>
               <div className="row">
                 <div className="col-12">
