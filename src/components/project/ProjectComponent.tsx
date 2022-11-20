@@ -74,7 +74,7 @@ export default class ProjectComponent extends Component<Props, State> {
   };
   private sendColabRequest = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    Api.colabRequest(this.state.project.id).then(res => {
+    Api.colabRequest(this.props.match.params.projectId).then(res => {
         if (res)
           this.setState({...this.state, colabRequested: true, project: res.data})
       }
@@ -82,6 +82,36 @@ export default class ProjectComponent extends Component<Props, State> {
   };
 
   projectForm(): JSX.Element {
+    let has_colab = this.state.project.colab !== null && this.state.project.colab !== undefined;
+    // @ts-ignore
+    if (has_colab) {
+      // @ts-ignore
+      const status: string = (this.state.project.colab!).status;
+      if (status === "pending") {
+        return (
+            <div className="already-bid">
+              <i className="ml-2"/>
+              <span>Collaboration Request is Pending For Acceptance</span>
+            </div>
+        )
+      }
+      else if (status === "accept"){
+          return (
+              <div className="bid-accepted">
+                  <i className="flaticon-check-mark ml-2"/>
+                  <span>Your Collaboration Request is Accepted!</span>
+              </div>
+          )
+      }
+      else {
+        return (
+            <div className="bid-rejected">
+              <i className="flaticon-danger ml-2"/>
+              <span>Your Collaboration Request is Rejected!</span>
+            </div>
+        )
+      }
+    }
     if (this.projectExpired()) {
       return (
         <div className="deadline-reached">
