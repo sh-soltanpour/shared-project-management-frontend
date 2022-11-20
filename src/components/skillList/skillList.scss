@@ -1,5 +1,6 @@
 .skills-list {
   display: flex;
+  flex-flow: column wrap;
   direction: ltr;
   flex-wrap: wrap;
 }
