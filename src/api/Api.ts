@@ -12,7 +12,8 @@ import LoginResponse from '../models/LoginResponse';
 class ApiClass {
   private axiosInstance = axios.create({
     // baseURL: 'http://localhost:8080/neyanboon'
-    baseURL: 'http://localhost:3001'
+    // baseURL: 'http://localhost:3001'
+    baseURL: 'https://afb7-136-159-213-149.ngrok.io'
   });
 
   constructor() {
@@ -21,6 +22,8 @@ class ApiClass {
         if (config.url && (config.url.includes("/login") || config.url.includes("/register")))
           return config;
         config.headers["Authorization"] = "Bearer " + localStorage.getItem("accessToken");
+        config.headers["ngrok-skip-browser-warning"] = "any"
+
         return config;
       },
       error => Promise.reject(error)
@@ -31,7 +34,7 @@ class ApiClass {
       },
       error => {
         if (error == 'Error: Network Error') {
-          ToastUtil.error('از اتصال اینترنت خود مطمئن شوید');
+          ToastUtil.error('No Internet Connection');
         }
         else if (error.response.status === 403 && !error.response.data){
           localStorage.clear();
