@@ -26,7 +26,7 @@ export default class ProjectListItemComponent extends Component<Props, State> {
   }
 
   render() {
-    const {deadline, imageUrl, description, title, _id } = this.props.project;
+    const {deadline, imageUrl, description, title, skills, _id } = this.props.project;
     return (
       <li className={`job-item-container ${this.projectExpired() ? 'ended' : ''}`}>
         <Link to={`projects/${_id}`}>
