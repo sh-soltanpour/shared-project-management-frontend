@@ -224,7 +224,7 @@ export default class ProjectComponent extends Component<Props, State> {
             </div>
 
             <div className="project-skills">
-              <h4>Collaboration Requests</h4>
+              <h4 className="colab-req-title">Collaboration Requests</h4>
               { this.state.project.colabs &&
               <SkillList
                   acceptCallback={this.acceptColab}

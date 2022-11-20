@@ -1,10 +1,12 @@
 #slider {
+  text-align: center;
   .slider-container {
     h1 {
       font-size: 36px;
       margin-bottom: 22px;
       font-weight: bold;
-      color: #00838f;
+      //color: #00838f;
+      color: #270D5B;
     }
     p {
       font-size: 14px;
@@ -14,12 +16,13 @@
     }
     .main-search-box {
       min-width: 400px;
-      border-radius: 1.625rem;
+      border-radius: 0.8rem;
       // width: 60%;
-      background: #e0f7fa;
+      //background: #e0f7fa;
+      background: #F9F7F1;
       box-shadow: 0 1px 6px rgba(0, 96, 100, 0.15);
       margin-bottom: 10px;
-      border-bottom: 3px solid #00acc1;
+      border-bottom: 3px solid #270D5B;
       display: flex;
       margin: 25px auto 0;
       font-size: 19px;
@@ -29,14 +32,14 @@
         border: 0;
         outline: 0;
         padding: 2px 12px;
-        color: #006064;
+        color: #270D5B;
         &::placeholder {
           color: rgba($color: #006064, $alpha: 0.5);
         }
       }
       > button {
-        background: #00acc1;
-        border-radius: 1.625rem;
+        background: #270D5B;
+        border-radius: 0.8rem;
         border: none;
         color: #ffffff;
         padding: 5px 15px;

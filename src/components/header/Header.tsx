@@ -19,11 +19,10 @@ export default class Header extends Component<Props, State> {
       <header>
         <div className="container h-100">
           <div id="header" className="row align-items-center justify-content-between">
-        
 
             <nav className="col-auto row align-items-center">
               <div id="profile" className="col-auto clickable">
-                <Link to="/">Home</Link>
+                <Link className="header-item" to="/">Home</Link>
               </div>
               <div id="logout" className="col-auto clickable">
                 <span onClick={this.logout}>Logout</span>

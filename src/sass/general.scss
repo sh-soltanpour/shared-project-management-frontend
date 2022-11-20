@@ -34,8 +34,8 @@
 body {
   direction: ltr;
   text-align: left;
-  font-family: 'IRANSans';
-  background: #f6f6f6;
+  font-family: 'Rubik';
+  background: #F9F7F1;
   padding-top: map-get($map: $header, $key: height);
   min-height: 100vh;
 }
@@ -48,9 +48,9 @@ main {
 .clickable {
   cursor: pointer;
 }
-button {
+/*button {
   font-family: 'IRANSans';
-}
+}*/
 .ltr {
   direction: ltr;
 }
@@ -61,13 +61,17 @@ button {
 .discord-link{
   text-align: center;
   margin-top: 15px;
+  a{
+    color: #7344D2;
+  }
 }
 
 #slider {
   display: block;
   width: 100%;
   padding: 80px 0;
-  background: #c8eef3;
+  //background: #c8eef3;
+  background: #7344e2b0;
   margin-bottom: -100px;
-  box-shadow: inset 0 -10px 10px -10px #add5d7;
+  box-shadow: inset 0 -10px 10px -10px #270D5B;
 }

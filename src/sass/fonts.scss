@@ -10,6 +10,18 @@
 }
 
 @font-face {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+
+  src: url('../assets/fonts/rubik/static/Rubik-Medium.ttf');
+  //src: url('../assets/fonts/rubik/static/IRANSansWeb_Medium.eot?#iefix') format('eot'),
+  //url('../assets/fonts/iransans/woff2/IRANSansWeb_Medium.woff2') format('woff2'),
+  //url('../assets/fonts/iransans/woff/IRANSansWeb_Medium.woff') format('woff'),
+  //url('../assets/fonts/iransans/ttf/IRANSansWeb_Medium.ttf') format('truetype');
+}
+
+@font-face {
   font-family: IRANSans;
   font-style: normal;
   font-weight: 500;

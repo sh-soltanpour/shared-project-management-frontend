@@ -1,7 +1,7 @@
 @import '../../sass/shared/vars';
 
 header {
-  background: #ffffff;
+  background: #270D5B;
   box-shadow: 0 1px 4px rgba($color: #000000, $alpha: 0.1);
   position: fixed;
   top: 0;
@@ -9,6 +9,9 @@ header {
   left: 0;
   height: map-get($map: $header, $key: height);
   z-index: 100;
+  .header-item{
+    color: #ffffff;
+  }
   #header {
     padding: 0;
     height: 100%;
@@ -24,11 +27,11 @@ header {
       }
     }
     nav {
-      a {
-        color: #444444;
+      a, span {
+        color: #FFFFFF;
         text-decoration: none;
         &:hover {
-          color: #111111;
+          color: #FFFFFF;
         }
       }
     }

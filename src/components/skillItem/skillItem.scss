@@ -37,6 +37,7 @@
 
     .remove-skill,
     .skill-endorse {
+      border-radius: 0.5em;
       position: absolute;
       right: 0;
       top: 0;
@@ -50,7 +51,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 3px;
+
       padding-top: 5px;
       transition: all 0.2s ease;
     }
@@ -58,14 +59,17 @@
 
     .skill-endorse {
       opacity: 1;
-      background: #00b800;
+      background: #7344D2;
       color: #ffffff;
+      border-radius: 0.5em;
+      margin: 5px;
     }
     .remove-skill {
 
       opacity: 1;
-      background: #d50000;
+      background: #270D5B;
       color: #ffffff;
+      border-radius: 0.5em;
     }
 
   &.endorsed {
