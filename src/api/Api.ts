@@ -12,8 +12,8 @@ import LoginResponse from '../models/LoginResponse';
 class ApiClass {
   private axiosInstance = axios.create({
     // baseURL: 'http://localhost:8080/neyanboon'
-    // baseURL: 'http://localhost:3001'
-    baseURL: 'https://afb7-136-159-213-149.ngrok.io'
+    baseURL: 'http://localhost:3001'
+    // baseURL: 'https://afb7-136-159-213-149.ngrok.io'
   });
 
   constructor() {
@@ -113,10 +113,10 @@ class ApiClass {
     return this.axiosInstance.post<LoginResponse>('/auth/login', data);
   }
 
-  register(firstName: string, lastName: string, bio: string, profilePictureUrl: string, jobTitle: string, password: string,
+  register(firstName: string, lastName: string, bio: string, profilePictureUrl: string, university: string, password: string,
            email: string): AxiosPromise<{}> {
     const data = {
-      firstName, lastName, bio, profilePictureUrl, jobTitle, password, email
+      firstName, lastName, bio, profilePictureUrl, university, password, email
     };
     return this.axiosInstance.post<{}>('/auth/register', data);
   }

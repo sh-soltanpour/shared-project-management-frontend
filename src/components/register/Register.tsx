@@ -10,8 +10,8 @@ export default class RegisterComponent extends Component<{}, State> {
   onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     if (this.isFormValid()) {
-      const { firstName, lastName, bio, imageUrl, jobTitle, password, username } = this.state;
-      Api.register(firstName, lastName, bio, imageUrl, jobTitle, password, username)
+      const { firstName, lastName, bio, imageUrl, university, password, email } = this.state;
+      Api.register(firstName, lastName, bio, imageUrl, university, password, email)
         .then(response=>{
           if (response.status === 200) {
             ToastUtil.success("Account created successfully")
@@ -25,9 +25,10 @@ export default class RegisterComponent extends Component<{}, State> {
     }
   };
   private isFormValid(): boolean {
-    const { firstName, lastName, bio, imageUrl, jobTitle, password, repeatPassword, username } = this.state;
+    return true;
+    const { firstName, lastName, bio, imageUrl, university, password, repeatPassword, email } = this.state;
     let hasError = false;
-    if (!firstName || !lastName || !bio || !imageUrl || !jobTitle || !password || !repeatPassword || !username) {
+    if (!firstName || !lastName || !bio || !imageUrl || !university || !password || !repeatPassword || !email) {
       ToastUtil.error(" Please complete all the fields");
       hasError = true;
     }
@@ -45,10 +46,10 @@ export default class RegisterComponent extends Component<{}, State> {
     const name = event.target.name as
       | 'firstName'
       | 'lastName'
-      | 'userName'
+      | 'email'
       | 'password'
       | 'repeatPassword'
-      | 'jobTitle'
+      | 'university'
       | 'imageUrl'
       | 'bio';
 
@@ -59,10 +60,10 @@ export default class RegisterComponent extends Component<{}, State> {
     this.state = {
       firstName: '',
       lastName: '',
-      username: '',
+      email: '',
       password: '',
       repeatPassword: '',
-      jobTitle: '',
+      university: '',
       imageUrl: '',
       bio: '',
       redirect: false
@@ -131,10 +132,10 @@ export default class RegisterComponent extends Component<{}, State> {
                 </div>
                 <div className="col-12">
                   <input
-                    name="jobTitle"
+                    name="university"
                     type="text"
                     className="ltr"
-                    placeholder="Filed of Study"
+                    placeholder="University"
                     onChange={this.onChange}
                     required
                   />
@@ -176,10 +177,10 @@ export default class RegisterComponent extends Component<{}, State> {
 interface State {
   firstName: string;
   lastName: string;
-  username: string;
+  email: string;
   password: string;
   repeatPassword: string;
-  jobTitle: string;
+  university: string;
   imageUrl: string;
   bio: string;
   redirect: boolean;

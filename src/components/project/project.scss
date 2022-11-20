@@ -94,6 +94,16 @@ $padding: 35px;
   }
   .project-form {
     justify-content: center;
+    .bid-rejected {
+      color: #ee0225;
+      font-size: 18px;
+      text-align: center;
+    }
+    .bid-accepted {
+      color: #02ee06;
+      font-size: 18px;
+      text-align: center;
+    }
     .already-bid {
       color: #eed202;
       font-size: 18px;
