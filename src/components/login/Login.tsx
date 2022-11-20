@@ -67,7 +67,7 @@ export default class LoginComponent extends Component<Props, State> {
                   <input
                     name="username"
                     type="text"
-                    className="ltr rtl-placeholder"
+                    className="ltr"
                     placeholder="User Name"
                     onChange={this.onUsernameChange}
                     required
@@ -77,7 +77,7 @@ export default class LoginComponent extends Component<Props, State> {
                   <input
                     name="password"
                     type="password"
-                    className="ltr rtl-placeholder"
+                    className="ltr "
                     placeholder="Password"
                     onChange={this.onPasswordChange}
                     required

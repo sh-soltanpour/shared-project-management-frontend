@@ -14,12 +14,12 @@ export default class RegisterComponent extends Component<{}, State> {
       Api.register(firstName, lastName, bio, imageUrl, jobTitle, password, username)
         .then(response=>{
           if (response.status === 200) {
-            ToastUtil.success('ثبت نام انجام شد')
+            ToastUtil.success("Account created successfully")
             this.setState({redirect: true})
           }
       }).catch(
         response => {
-          ToastUtil.error('این نام کاربری در سیستم ثبت شده')
+          ToastUtil.error('Email already exists')
         }
       )
     }
@@ -28,15 +28,15 @@ export default class RegisterComponent extends Component<{}, State> {
     const { firstName, lastName, bio, imageUrl, jobTitle, password, repeatPassword, username } = this.state;
     let hasError = false;
     if (!firstName || !lastName || !bio || !imageUrl || !jobTitle || !password || !repeatPassword || !username) {
-      ToastUtil.error('لطفا همه‌ی فیلدها را کامل کنید');
+      ToastUtil.error(" Please complete all the fields");
       hasError = true;
     }
     if (!imageUrl.match(/^https?:\/\/[^ ]*\.[^ ]*$/)) {
-      ToastUtil.error('لینک عکس پروفایل نامعتبر است');
+      ToastUtil.error("Please enter a valid email address");
       hasError = true;
     }
     if (password !== repeatPassword) {
-      ToastUtil.error('رمزعبور با تکرار آن برابر نیست');
+      ToastUtil.error('Passwords do not math');
       hasError = true;
     }
     return !hasError;
@@ -87,24 +87,24 @@ export default class RegisterComponent extends Component<{}, State> {
             <form className="register-form" onSubmit={this.onSubmit}>
               <div className="row">
                 <div className="col-6">
-                  <input name="firstName" type="text" className="rtl rtl-placeholder" placeholder="نام" onChange={this.onChange} required />
+                  <input name="firstName" type="text" className="ltr" placeholder="Name" onChanege={this.onChange} required />
                 </div>
                 <div className="col-6">
                   <input
                     name="lastName"
                     type="text"
-                    className="rtl rtl-placeholder"
-                    placeholder="نام خانوادگی"
+                    className="ltr "
+                    placeholder="Last Name"
                     onChange={this.onChange}
                     required
                   />
                 </div>
                 <div className="col-12">
                   <input
-                    name="username"
+                    name="email"
                     type="text"
-                    className="ltr rtl-placeholder"
-                    placeholder="نام کاربری"
+                    className="ltr"
+                    placeholder="Email"
                     onChange={this.onChange}
                     required
                   />
@@ -113,8 +113,8 @@ export default class RegisterComponent extends Component<{}, State> {
                   <input
                     name="password"
                     type="password"
-                    className="ltr rtl-placeholder"
-                    placeholder="کلمه عبور"
+                    className="ltr r"
+                    placeholder="Password"
                     onChange={this.onChange}
                     required
                   />
@@ -123,8 +123,8 @@ export default class RegisterComponent extends Component<{}, State> {
                   <input
                     name="repeatPassword"
                     type="password"
-                    className="ltr rtl-placeholder"
-                    placeholder="تکرار کلمه عبور"
+                    className="ltr "
+                    placeholder="Password"
                     onChange={this.onChange}
                     required
                   />
@@ -133,8 +133,8 @@ export default class RegisterComponent extends Component<{}, State> {
                   <input
                     name="jobTitle"
                     type="text"
-                    className="rtl rtl-placeholder"
-                    placeholder="عنوان شغلی"
+                    className="ltr"
+                    placeholder="Filed of Study"
                     onChange={this.onChange}
                     required
                   />
@@ -143,30 +143,30 @@ export default class RegisterComponent extends Component<{}, State> {
                   <input
                     name="imageUrl"
                     type="url"
-                    className="ltr rtl-placeholder"
-                    placeholder="لینک عکس پروفایل"
+                    className="ltr "
+                    placeholder="Affiliation"
                     onChange={this.onChange}
                     required
                   />
                 </div>
                 <div className="col-12">
-                  <textarea name="bio" className="rtl-placeholder" cols={30} rows={5} placeholder="بیو" onChange={this.onChange} required />
+                  <textarea name="bio" className="ltr" cols={30} rows={5} placeholder="Biography" onChange={this.onChange} required />
                 </div>
               </div>
 
               <button type="submit" className="signup-button">
-                ثبت‌نام
+                Sign Up
               </button>
               <p className="message">
-                <span>قبلا ثبت‌نام کرده‌اید؟ </span>
-                <Link to="/login">وارد شوید</Link>
+                <span>Do you have an account? </span>
+                <Link to="/login">login</Link>
               </p>
             </form>
           </div>
         </div>
         <LoginSlider />
         <footer className="bg-transparent">
-          <span className="footer-text">&#169; تمامی حقوق این سایت متعلق به جاب‌اونجا است</span>
+          // <span className="footer-text">&#169; تمامی حقوق این سایت متعلق به جاب‌اونجا است</span>
         </footer>
       </div>
     );

@@ -90,14 +90,14 @@ export default class ProjectComponent extends Component<Props, State> {
       return (
         <div className="deadline-reached">
           <i className="flaticon-danger ml-2"/>
-          <span>مهلت ارسال پیشنهاد برای این پروژه به پایان رسیده است!</span>
+          <span>Time out</span>
         </div>
       );
     } else if (this.state.bidRequested) {
       return (
         <div className="already-bid">
           <i className="flaticon-check-mark ml-2"/>
-          <span>پیشنهاد شما ثبت شده است</span>
+          <span>ALREADY EXIST</span>
         </div>
       );
     } else {
@@ -142,7 +142,7 @@ export default class ProjectComponent extends Component<Props, State> {
                   <li className="project-budget">
                     <i className="flaticon-money-bag-1"/>
                     <span className="ml-2">بودجه:</span>
-                    <span>{StringUtil.convertEngNumbersToPersian(budget.toString())} تومان</span>
+                    <span>{StringUtil.convertEngNumbersToPersian(budget.toString())}CAD</span>
                   </li>
                   {this.projectExpired() &&
                   <li className="won-user">
@@ -153,7 +153,7 @@ export default class ProjectComponent extends Component<Props, State> {
                   }
                 </ul>
                 <div className="project-description">
-                  <h4>توضیحات</h4>
+                  <h4>dIS</h4>
                   <p>{description}</p>
                 </div>
               </div>
