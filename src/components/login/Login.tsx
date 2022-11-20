@@ -58,9 +58,7 @@ export default class LoginComponent extends Component<Props, State> {
       <div>
         <div className="login-page">
           <div className="form">
-            <Link id="logo" className="col-auto d-flex align-items-center" to="/">
-              <img src={logo} alt="logo"/>
-            </Link>
+
             <form className="register-form" onSubmit={this.onSubmitLogin}>
               <div className="row">
                 <div className="col-12">
@@ -85,8 +83,7 @@ export default class LoginComponent extends Component<Props, State> {
                 </div>
               </div>
 
-              <button type="submit" className="signup-button">
-                ورود
+              <button type="submit" className="signup-button">Sign up
               </button>
               <p className="message">
                 <span>Dont have an account yet? </span>

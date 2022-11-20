@@ -20,14 +20,13 @@ export default class Hero extends Component<Props, State> {
       <div>
         <section id="slider">
           <div className="slider-container container">
-            <h1>جاب‌اونجا خوب است!</h1>
-            <p>
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
-              مجله در
-            </p>
+            <h1>Project Proposal</h1>
+
             <form className="main-search-box" onSubmit={this.submitSearchProjects}>
-              <input type="text" placeholder="جستجو در جاب‌اونجا" onChange={this.onChangeInput} />
-              <button type="submit">جستجو</button>
+              <input type="text" placeholder="search projects" onChange={this.onChangeInput} />
+              <button  type="submit"> Search
+
+                  </button>
             </form>
           </div>
         </section>

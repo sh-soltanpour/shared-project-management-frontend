@@ -35,25 +35,16 @@ export default class ProjectListItemComponent extends Component<Props, State> {
             <div className="job-item-content">
               <div className="job-item-title-container">
                 <h3 className="job-item-title">{title}</h3>
-                <div className="job-item-date">
-                  {!this.projectExpired() ? (
-                    <span>
-                      <span className="job-item-date-label">time</span>
-                      <span>{DateUtil.dateDifference(this.state.now, new Date(deadline)).toPersianString()}</span>
-                    </span>
-                  ) : (
-                    <span>time</span>
-                  )}
-                </div>
+
               </div>
               <p className="job-item-desc">{description}</p>
               <div className="job-item-footer">
                 <div className="budget-container">
-                  <span className="budget-label">budget:</span>
+                  <span className="budget-label">Level:</span>
                   {/*<span className="budget-content">{StringUtil.convertEngNumbersToPersian(budget.toString())} تومان</span>*/}
                 </div>
                 <div className="skills-container">
-                  <span className="skills-label">skils:</span>
+                  <span className="skills-label">Professor:</span>
                   {/*<ul className="skill-list">*/}
                   {/*  {skills.map(s => (*/}
                   {/*    <li key={s.name} className="skill-item">*/}

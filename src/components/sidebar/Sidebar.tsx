@@ -18,7 +18,7 @@ export default class Sidebar extends Component<Props, State> {
   onChangeSearchInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const searchInput = event.target.value;
     this.setState({ searchInput });
-    this.searchSubmit(searchInput);
+    // this.searchSubmit(searchInput);
   };
   constructor(props: Props) {
     super(props);
@@ -41,9 +41,7 @@ export default class Sidebar extends Component<Props, State> {
     const usersComponents = usersList.map(u => <SidebarUserItem key={u.id} user={u} />);
     return (
       <aside>
-        <div className="search-box">
-          <input className="search-input" type="text" placeholder="search" onChange={this.onChangeSearchInput} />
-        </div>
+        
         <div id="user-list-wrapper">
           <ul className="user-list">{usersComponents}</ul>
         </div>

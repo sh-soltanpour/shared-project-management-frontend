@@ -75,11 +75,7 @@ export default class HomeComponent extends Component<Props, State> {
                 <ul className="job-list">
                   {projectsComponents.length > 0 ? projectsComponents : <div className="job-list-empty-state">هیچ پروژه‌ای وجود ندارد</div>}
                 </ul>
-                {showLoadMore && !isSearching && (
-                  <button className="load-more-btn" onClick={this.onLoadMore}>
-                    show more
-                  </button>
-                )}
+              
               </section>
             </div>
           </div>

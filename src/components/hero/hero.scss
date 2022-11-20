@@ -14,7 +14,8 @@
     }
     .main-search-box {
       min-width: 400px;
-      width: 60%;
+      border-radius: 1.625rem;
+      // width: 60%;
       background: #e0f7fa;
       box-shadow: 0 1px 6px rgba(0, 96, 100, 0.15);
       margin-bottom: 10px;
@@ -35,6 +36,7 @@
       }
       > button {
         background: #00acc1;
+        border-radius: 1.625rem;
         border: none;
         color: #ffffff;
         padding: 5px 15px;
