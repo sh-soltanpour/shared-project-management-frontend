@@ -83,7 +83,7 @@ export default class LoginComponent extends Component<Props, State> {
                 </div>
               </div>
 
-              <button type="submit" className="signup-button">Sign up
+              <button type="submit" className="signup-button">Login
               </button>
               <p className="message">
                 <span>Dont have an account yet? </span>

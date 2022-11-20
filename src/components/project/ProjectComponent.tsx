@@ -8,7 +8,6 @@ import {DateUtil} from '../../utils/DateUtil';
 import SkillList from '../skillList/SkillList';
 import {StringUtil} from '../../utils/StringUtil';
 import SkillType from '../../enums/SkillType';
-import ToastUtil from '../../utils/ToastUtil';
 
 export default class ProjectComponent extends Component<Props, State> {
   constructor(props: Props) {
@@ -68,12 +67,13 @@ export default class ProjectComponent extends Component<Props, State> {
   }
 
   projectDeadline(): JSX.Element {
+    return (<div></div>)
     if (!this.projectExpired()) {
       return (
         <li className="project-deadline">
           <i className="flaticon-deadline"/>
           <span className="ml-2 font-weight-bold">time</span>
-          <span>{DateUtil.dateDifference(this.state.now, new Date(this.state.project.date_created!)).toPersianString()}</span>
+          <span>{DateUtil.dateDifference(this.state.now, new Date(this.state.project.project.date_created!)).toPersianString()}</span>
         </li>
       );
     } else {
@@ -99,6 +99,17 @@ export default class ProjectComponent extends Component<Props, State> {
     );
   };
 
+  discordLink(): JSX.Element{
+    if (this.state.project.project.discordLink)
+      return (
+          <div className="discord-link">
+            <a href={this.state.project.project.discordLink}>Join Discord</a>
+          </div>
+      )
+    else
+      return(<div></div>)
+  }
+
   projectForm(): JSX.Element {
     let has_colab = this.state.project.colab !== null && this.state.project.colab !== undefined;
     // @ts-ignore
@@ -109,15 +120,18 @@ export default class ProjectComponent extends Component<Props, State> {
         return (
             <div className="already-bid">
               <i className="ml-2"/>
-              <span>Collaboration Request is Pending For Acceptance</span>
+              <span> Collaboration Request is Pending For Acceptance</span>
             </div>
         )
       }
       else if (status === "accept"){
           return (
+              <div>
               <div className="bid-accepted">
                   <i className="flaticon-check-mark ml-2"/>
-                  <span>Your Collaboration Request is Accepted!</span>
+                  <span> Your Collaboration Request is Accepted!</span>
+              </div>
+                {this.discordLink()}
               </div>
           )
       }
@@ -125,7 +139,7 @@ export default class ProjectComponent extends Component<Props, State> {
         return (
             <div className="bid-rejected">
               <i className="flaticon-danger ml-2"/>
-              <span>Your Collaboration Request is Rejected!</span>
+              <span> Your Collaboration Request is Rejected!</span>
             </div>
         )
       }
@@ -167,7 +181,10 @@ export default class ProjectComponent extends Component<Props, State> {
     if (!this.isLoggedIn()){
       return <Redirect to={"/login"}/>
     }
-    const {budget, title, imageUrl, description, skills, deadline} = this.state.project;
+    if (!this.state.project.project){
+      return<div></div>;
+    }
+    const {title, imageUrl, description} = this.state.project.project;
     return (
       <div>
         <section id="slider">
@@ -184,9 +201,13 @@ export default class ProjectComponent extends Component<Props, State> {
                 <ul className="project-info">
                   {this.projectDeadline()}
                   <li className="project-budget">
-                    <i className="flaticon-money-bag-1"/>
-                    {/*<span className="ml-2">بودجه:</span>*/}
-                    {/*<span>{StringUtil.convertEngNumbersToPersian(budget.toString())}CAD</span>*/}
+                    <span className="ml-2">{"University of Calgary"}</span>
+                  </li>
+                  <li className="project-budget">
+                    <span className="ml-2">{"Computer Science"}</span>
+                  </li>
+                  <li className="project-budget">
+                    <span className="ml-2">{"Dr Andrew Ng"}</span>
                   </li>
                   {this.projectExpired() &&
                   <li className="won-user">
@@ -197,21 +218,24 @@ export default class ProjectComponent extends Component<Props, State> {
                   }
                 </ul>
                 <div className="project-description">
-                  <h4>dIS</h4>
                   <p>{description}</p>
                 </div>
               </div>
             </div>
+
             <div className="project-skills">
               <h4>Collaboration Requests</h4>
+              { this.state.project.colabs &&
               <SkillList
                   acceptCallback={this.acceptColab}
                   rejectCallback={this.rejectColab}
                   projectId={this.state.project._id}
                   type={SkillType.simple}
                   skills={this.state.project.colabs}/>
+              }
             </div>
             <div className="project-form">{this.projectForm()}</div>
+            {this.state.project.is_owner && this.discordLink()}
           </div>
         </div>
       </div>

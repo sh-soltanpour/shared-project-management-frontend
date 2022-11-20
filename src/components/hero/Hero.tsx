@@ -20,7 +20,7 @@ export default class Hero extends Component<Props, State> {
       <div>
         <section id="slider">
           <div className="slider-container container">
-            <h1>Project Proposal</h1>
+            <h1>Shared Project Management</h1>
 
             <form className="main-search-box" onSubmit={this.submitSearchProjects}>
               <input type="text" placeholder="search projects" onChange={this.onChangeInput} />

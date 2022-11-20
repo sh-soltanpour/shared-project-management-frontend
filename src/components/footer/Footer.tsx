@@ -7,7 +7,7 @@ export default class Footer extends Component<Props, {}> {
     if (this.props.location.pathname === '/login' || this.props.location.pathname === '/register') return null;
     return (
       <footer>
-        // <span>&#169; تمامی حقوق این سایت متعلق به جاب‌اونجا می‌باشد</span>
+        <span>All rights reserved for Kotlet team &#169;</span>
       </footer>
     );
   }

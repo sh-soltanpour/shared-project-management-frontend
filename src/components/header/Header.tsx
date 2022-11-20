@@ -23,6 +23,9 @@ export default class Header extends Component<Props, State> {
 
             <nav className="col-auto row align-items-center">
               <div id="profile" className="col-auto clickable">
+                <Link to="/">Home</Link>
+              </div>
+              <div id="profile" className="col-auto clickable">
                 <Link to="/profile">User Account</Link>
               </div>
               <div id="logout" className="col-auto clickable">

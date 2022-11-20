@@ -73,7 +73,7 @@ export default class HomeComponent extends Component<Props, State> {
 
               <section id="job-list-wrapper">
                 <ul className="job-list">
-                  {projectsComponents.length > 0 ? projectsComponents : <div className="job-list-empty-state">هیچ پروژه‌ای وجود ندارد</div>}
+                  {projectsComponents.length > 0 ? projectsComponents : <div className="job-list-empty-state">No projects found</div>}
                 </ul>
               
               </section>
