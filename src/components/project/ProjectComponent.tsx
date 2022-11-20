@@ -53,13 +53,17 @@ export default class ProjectComponent extends Component<Props, State> {
 
   acceptColab = (colabId: string) => {
     Api.acceptColab(this.props.match.params.projectId, colabId).then(data => {
-      this.setState({})
+      Api.getProject(this.props.match.params.projectId).then(res => {
+        this.setState({...this.state, project: res.data});
+      })
     })
   }
 
   rejectColab = (colabId: string) => {
     Api.rejectColab(this.props.match.params.projectId, colabId).then(data => {
-      this.setState({})
+      Api.getProject(this.props.match.params.projectId).then(res => {
+        this.setState({...this.state, project: res.data});
+      })
     })
   }
 

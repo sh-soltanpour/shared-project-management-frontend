@@ -18,8 +18,8 @@ export default class SkillItem extends Component<Props, State> {
     if (this.props.status == "pending") {
         return (
             <div>
-                <div onClick={()=>this.reject()} className="remove-skill">Reject</div>
-                <div onClick={()=>this.accept()} className="skill-endorse">Accept</div>
+                <button onClick={()=>this.reject()} className="remove-skill">Reject</button>
+                <button onClick={()=>this.accept()} className="skill-endorse">Accept</button>
             </div>
         );
     }

@@ -33,7 +33,7 @@ export default class SkillList extends Component<Props, {}> {
     return (
       <ul className="skills-list">
         {this.props.skills.map(skill => (
-          <li key={skill.status}>
+          <li key={skill._id}>
             <SkillItem
                 key={skill._id}
                 acceptCallback={this.props.acceptCallback}
